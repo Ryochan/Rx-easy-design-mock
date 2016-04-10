@@ -39,6 +39,12 @@ class ViewController: UITableViewController {
             }
             .addDisposableTo(disposeBag)
         
+        tableView.rx_modelSelected(Timeline)
+            .subscribeNext { timeline in
+                print(timeline.name)
+            }
+            .addDisposableTo(disposeBag)
+        
         setupNav()
     }
     
@@ -50,7 +56,4 @@ class ViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
-
 }
-
